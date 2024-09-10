@@ -81,7 +81,7 @@ The countries' data is stored in a JSON file (`countries.json`) located in the `
 
 ## 📧 Contact
 
-For any queries or feedback, please contact [yourname@example.com](mailto:yourname@example.com).
+For any queries or feedback, please contact (psgeeta16@gmail.com).
 
 ---
 
@@ -89,4 +89,4 @@ Enjoy exploring the world with **Country Explorer**! 🌍✨
 
 ---
 
-Feel free to copy this README file, customize it with your details, and provide more specific information if needed.
+
