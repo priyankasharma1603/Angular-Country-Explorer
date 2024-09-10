@@ -1,0 +1,27 @@
+.details-container {
+  padding: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-bottom: 20px;
+}
+
+.country-details {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.country-details img {
+  width: 200px;
+}
+
+.info {
+  font-size: 16px;
+}
+
+.info h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}

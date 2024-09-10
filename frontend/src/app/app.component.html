@@ -1,0 +1,30 @@
+<div class="Header">
+  <h1>Where in the world?</h1>
+  <div>
+    <i class="fa-solid fa-moon"></i>
+    <button (click)="toggleDarkMode()">Dark Mode</button>
+  </div>
+</div>
+
+<div class="filter-container">
+  <label for="region-select">Filter by Region:</label>
+  <select id="region-select" (change)="filterByRegion($event)">
+    <option value="">All Regions</option>
+    <option *ngFor="let region of regions" [value]="region">{{ region }}</option>
+  </select>
+</div>
+
+<div class="search-bar">
+  <input type="text" placeholder="Search by country name" (input)="filterByName($event)" />
+</div>
+
+<div class="card-container">
+  <div class="card" *ngFor="let country of filteredCountries" (click)="navigateToDetails(country.name)">
+    <img [src]="country.flag" alt="{{ country.name }} flag" class="card-img" />
+    <div class="card-content">
+      <h3 class="card-title">{{ country.name }}</h3>
+      <p class="card-info">{{ country.subregion }}</p>
+      <p class="card-info">Population: {{ country.population | number }}</p>
+    </div>
+  </div>
+</div>
