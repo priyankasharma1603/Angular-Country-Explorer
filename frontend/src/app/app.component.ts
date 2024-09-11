@@ -8,9 +8,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title(title: any) {
-    throw new Error('Method not implemented.');
-  }
   countries: any[] = [];
   filteredCountries: any[] = [];
   regions: string[] = [];
@@ -20,6 +17,7 @@ export class AppComponent implements OnInit {
   constructor(private countryService: CountryService, private router: Router) {}
 
   ngOnInit(): void {
+    // Fetch countries data from the service
     this.countryService.getCountries().subscribe((data: any[]) => {
       this.countries = data;
       this.filteredCountries = data;
@@ -32,34 +30,36 @@ export class AppComponent implements OnInit {
     });
   }
 
+  // Toggles the dark mode for the app
   toggleDarkMode(): void {
     this.isDarkMode = !this.isDarkMode;
-    if (this.isDarkMode) {
-      document.body.classList.add('dark-mode');
-    } else {
-      document.body.classList.remove('dark-mode');
-    }
+    document.body.classList.toggle('dark-mode', this.isDarkMode);
   }
 
+  // Filter countries by region
   filterByRegion(event: Event): void {
     const selectElement = event.target as HTMLSelectElement;
     const selectedRegion = selectElement.value;
 
+    // Filter countries based on the selected region
     this.filteredCountries = this.countries.filter(country => 
       selectedRegion === '' || country.region === selectedRegion
     );
 
+    // If there's an active search query, apply it on the filtered list
     if (this.searchQuery) {
       this.filterByName();
     }
   }
 
+  // Filter countries by name
   filterByName(event?: Event): void {
     if (event) {
       const inputElement = event.target as HTMLInputElement;
       this.searchQuery = inputElement.value;
     }
 
+    // Filter countries based on the search query
     this.filteredCountries = this.countries.filter(country =>
       country.name.toLowerCase().includes(this.searchQuery.toLowerCase())
     );

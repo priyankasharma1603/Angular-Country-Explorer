@@ -1,9 +1,10 @@
-<div *ngIf="country">
-  <h1>{{ country.name }}</h1>
-  <img [src]="country.flag" alt="{{ country.name }} flag" />
-  <p><strong>Region:</strong> {{ country.region }}</p>
-  <p><strong>Subregion:</strong> {{ country.subregion }}</p>
-  <p><strong>Population:</strong> {{ country.population | number }}</p>
-  <p><strong>Capital:</strong> {{ country.capital }}</p>
+<!-- src/app/components/country-details/country-details.component.html -->
+<div class="country-details">
+  <h1>{{ country?.name }}</h1>
+  <p><strong>Region:</strong> {{ country?.region }}</p>
+  <p><strong>Subregion:</strong> {{ country?.subregion }}</p>
+  <p><strong>Capital:</strong> {{ country?.capital }}</p>
+  <p><strong>Population:</strong> {{ country?.population | number }}</p>
   <p><strong>Languages:</strong> {{ languages }}</p>
+  <p><strong>Currency:</strong> {{ country?.currencies[0]?.name }}</p>
 </div>

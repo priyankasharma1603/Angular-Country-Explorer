@@ -1,12 +1,11 @@
-<!-- <div *ngIf="visible" class="modal-overlay" (click)="closeModal()">
-  <div class="modal-content" (click)="$event.stopPropagation()">
-    <span class="close-btn" (click)="closeModal()">&times;</span>
-    <h1>{{ country.name }}</h1>
-    <img [src]="country.flag" alt="{{ country.name }} flag" />
+<div *ngIf="visible" class="modal-overlay">
+  <div class="modal-content">
+    <button class="close-btn" (click)="closeModal()">X</button>
+    <h2>{{ country.name }}</h2>
+    <img [src]="country.flags.svg" alt="{{ country.name }} flag">
     <p><strong>Region:</strong> {{ country.region }}</p>
     <p><strong>Subregion:</strong> {{ country.subregion }}</p>
     <p><strong>Population:</strong> {{ country.population | number }}</p>
-    <p><strong>Capital:</strong> {{ country.capital }}</p>
-    <p><strong>Languages:</strong> {{ country.languages.map((lang: any) => lang.name).join(', ') }}</p>
+    <p><strong>Languages:</strong> {{ country.languages.map(lang => lang.name).join(', ') }}</p>
   </div>
-</div> -->
+</div>

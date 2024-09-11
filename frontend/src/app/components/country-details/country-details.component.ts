@@ -25,6 +25,7 @@ export class CountryDetailsComponent implements OnInit {
       this.country = countries.find(country => country.name === countryName);
 
       if (this.country && this.country.languages) {
+        // Transform the languages array into a string
         this.languages = this.country.languages.map((lang: any) => lang.name).join(', ');
       }
     });
